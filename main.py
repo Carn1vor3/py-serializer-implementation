@@ -8,8 +8,7 @@ from car.serializers import CarSerializer
 
 
 def serialize_car_object(car: Car) -> bytes:
-    cars = Car.objects.all()
-    serializer = CarSerializer(cars, many=True)
+    serializer = CarSerializer(car)
     json = JSONRenderer().render(serializer.data)
     return json
 
